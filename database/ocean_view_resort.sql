@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2026 at 07:16 AM
+-- Generation Time: Mar 04, 2026 at 09:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,31 +24,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bills`
---
-
-CREATE TABLE `bills` (
-  `bill_id` int(11) NOT NULL,
-  `res_id` int(11) NOT NULL,
-  `total_nights` int(11) NOT NULL,
-  `room_price` decimal(10,2) NOT NULL,
-  `total_amount` decimal(10,2) NOT NULL,
-  `bill_date` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `reservations`
 --
 
 CREATE TABLE `reservations` (
-  `res_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `reservation_id` int(11) NOT NULL,
+  `guest_name` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `contact_number` varchar(20) NOT NULL,
   `room_id` int(11) NOT NULL,
-  `check_in` date NOT NULL,
-  `check_out` date NOT NULL,
-  `status` varchar(20) DEFAULT 'Pending'
+  `check_in_date` date NOT NULL,
+  `check_out_date` date NOT NULL,
+  `total_amount` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,9 +46,9 @@ CREATE TABLE `reservations` (
 
 CREATE TABLE `rooms` (
   `room_id` int(11) NOT NULL,
-  `room_type` varchar(50) DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `status` enum('Available','Booked') DEFAULT 'Available'
+  `room_type` varchar(50) NOT NULL,
+  `price_per_night` double NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -73,8 +60,8 @@ CREATE TABLE `rooms` (
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `role` enum('admin','staff','guest') NOT NULL
+  `password` varchar(100) NOT NULL,
+  `role` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -82,19 +69,11 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `bills`
---
-ALTER TABLE `bills`
-  ADD PRIMARY KEY (`bill_id`),
-  ADD KEY `fk_bill_reservation` (`res_id`);
-
---
 -- Indexes for table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`res_id`),
-  ADD KEY `fk_user` (`user_id`),
-  ADD KEY `fk_room` (`room_id`);
+  ADD PRIMARY KEY (`reservation_id`),
+  ADD KEY `room_id` (`room_id`);
 
 --
 -- Indexes for table `rooms`
@@ -114,16 +93,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `bills`
---
-ALTER TABLE `bills`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rooms`
@@ -142,17 +115,10 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `bills`
---
-ALTER TABLE `bills`
-  ADD CONSTRAINT `fk_bill_reservation` FOREIGN KEY (`res_id`) REFERENCES `reservations` (`res_id`) ON DELETE CASCADE;
-
---
 -- Constraints for table `reservations`
 --
 ALTER TABLE `reservations`
-  ADD CONSTRAINT `fk_room` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`room_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
