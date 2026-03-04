@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login - Ocean View Resort</title>
+<meta charset="UTF-8">
+<title>Forgot Password - Ocean View Resort</title>
 
 <style>
 
@@ -84,26 +84,12 @@ body{
     flex-direction:column;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"]{
+.login-form input[type="text"]{
     padding:12px;
     margin-bottom:15px;
     border:1px solid #ddd;
     border-radius:6px;
     font-size:14px;
-}
-
-.options{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:13px;
-    margin-bottom:20px;
-}
-
-.options a{
-    text-decoration:none;
-    color:#0093E9;
 }
 
 .login-form button{
@@ -121,60 +107,57 @@ body{
     background:#0077c8;
 }
 
+.message{
+    margin-top:15px;
+    font-size:14px;
+    color:red;
+    text-align:center;
+}
+
+.login-form a{
+    margin-top:15px;
+    text-decoration:none;
+    color:#0093E9;
+    font-size:14px;
+}
+
+.login-form a:hover{
+    text-decoration:underline;
+}
+
 </style>
 </head>
 
 <body>
 
-<a href="index.html" class="back-home">← Back to Home</a>
+<a href="login.html" class="back-home">← Back to Login</a>
 
 <div class="login-container">
 
     <div class="login-info">
         <h2>Ocean View Resort</h2>
         <p>
-            Welcome to the management portal. <br>
-            Please log in to access the reservation and management system.
+            Forgot your password? <br>
+            Enter your username and we will retrieve your account details.
         </p>
     </div>
 
     <div class="login-form">
-        <h2>Login</h2>
+        <h2>Forgot Password</h2>
 
-        <form action="LoginServlet" method="post">
-
-            <input type="text" id="username" name="username" placeholder="Username" required>
-
-            <input type="password" id="password" name="password" placeholder="Password" required>
-
-            <div class="options">
-                <label>
-                    <input type="checkbox" name="remember"> Remember me
-                </label>
-                <a href="forgot-password.jsp">Forgot password?</a>
-            </div>
-
-            <button type="submit">Login</button>
-
+        <form action="ForgotPasswordServlet" method="post">
+            <input type="text" name="username" placeholder="Enter your Username" required>
+            <button type="submit">Recover Password</button>
         </form>
+
+        <div class="message">
+            ${message}
+        </div>
+
+        <a href="login.html">Back to Login</a>
     </div>
 
 </div>
 
 </body>
-
-<script>
-window.onload = function() {
-    const cookies = document.cookie.split(';');
-    let username = '', password = '';
-    cookies.forEach(cookie => {
-        const [key, value] = cookie.trim().split('=');
-        if (key === 'username') username = value;
-        if (key === 'password') password = value;
-    });
-    if (username) document.getElementById('username').value = decodeURIComponent(username);
-    if (password) document.getElementById('password').value = decodeURIComponent(password);
-}
-</script>
-
 </html>
