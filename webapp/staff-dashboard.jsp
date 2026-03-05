@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard - Ocean View Resort</title>
+<title>Staff Dashboard - Ocean View Resort</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .container{
@@ -109,12 +109,13 @@
 
 <div class="container">
 
-     <div class="sidebar">
+    <div class="sidebar">
         <h2>Ocean View Resort</h2>
-        <a href="admin-dashboard.html">Dashboard</a>
-        <a href="manage-rooms.jsp">Manage Rooms</a>
-        <a href="manage-users.jsp">Manage Users</a>
-        <a href="view-reports.jsp">View Reports</a>
+        <a href="staff-dashboard.jsp">Dashboard</a>
+        <a href="add-reservation.jsp">Add Reservation</a>
+        <a href="view-reservation.jsp">View Reservations</a>
+        <a href="calculate-bill.jsp">Calculate Bill</a>
+        <a href="print-bill.jsp">Print Bill</a>
         <a href="help.jsp">Help</a>
         <a href="LogoutServlet">Logout</a>
     </div>
@@ -123,24 +124,24 @@
 
         <div class="top-bar">
             <h1>Dashboard</h1>
-            <div class="welcome">Welcome, Admin</div>
+            <div class="welcome">Welcome, Staff</div>
         </div>
 
         <div class="cards">
 
-            <div class="card" onclick="location.href='manage-rooms.jsp'">
-                <h3>Manage Rooms</h3>
-                <p>Add, update or delete room details and pricing.</p>
+            <div class="card" onclick="location.href='add-reservation.jsp'">
+                <h3>Add New Reservation</h3>
+                <p>Create new room bookings for customers.</p>
             </div>
 
-            <div class="card" onclick="location.href='manage-users.jsp'">
-                <h3>Manage Users</h3>
-                <p>Create and manage staff accounts securely.</p>
+            <div class="card" onclick="location.href='view-reservation.jsp'">
+                <h3>Display Reservations</h3>
+                <p>Search and view reservation details.</p>
             </div>
 
-            <div class="card" onclick="location.href='view-reports.jsp'">
-                <h3>View Reports</h3>
-                <p>Check reservations, income and occupancy reports.</p>
+            <div class="card" onclick="location.href='calculate-bill.jsp'">
+                <h3>Calculate & Print Bill</h3>
+                <p>Generate final bill and print invoice.</p>
             </div>
 
         </div>

@@ -130,7 +130,7 @@
     <div class="container">
         <div class="sidebar">
             <h2>Ocean View Resort</h2>
-            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-dashboard.jsp">Dashboard</a>
             <a href="manage-rooms.jsp">Manage Rooms</a>
             <a href="manage-users.jsp">Manage Users</a>
             <a href="view-reports.jsp">Reports</a>

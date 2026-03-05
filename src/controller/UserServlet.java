@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import dao.userDAO;
 import model.User;
 
-@WebServlet("/user")
+@WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
 
     private userDAO dao = new userDAO();

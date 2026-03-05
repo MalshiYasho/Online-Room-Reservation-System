@@ -130,7 +130,7 @@ body{
 
 <body>
 
-<a href="login.html" class="back-home">← Back to Login</a>
+<a href="login.jsp" class="back-home">← Back to Login</a>
 
 <div class="login-container">
 

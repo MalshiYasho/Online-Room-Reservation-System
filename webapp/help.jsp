@@ -98,7 +98,7 @@
 
             <% if(role != null && role.equalsIgnoreCase("admin")){ %>
 
-            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-dashboard.jsp">Dashboard</a>
             <a href="manage-rooms.jsp">Manage Rooms</a>
             <a href="manage-users.jsp">Manage Users</a>
             <a href="view-reports.jsp">View Reports</a>
@@ -107,7 +107,7 @@
 
             <% } else { %>
 
-            <a href="staff-dashboard.html">Dashboard</a>
+            <a href="staff-dashboard.jsp">Dashboard</a>
             <a href="add-reservation.jsp">Add Reservation</a>
             <a href="view-reservations.jsp">View Reservations</a>
             <a href="calculate-bill.jsp">Calculate Bill</a>

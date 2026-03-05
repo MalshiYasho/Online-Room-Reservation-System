@@ -200,12 +200,12 @@ function showReport(type){
 
    <div class="sidebar">
       <h2>Ocean View Resort</h2>
-      <a href="admin-dashboard.html">Dashboard</a>
-      <a href="manage-rooms.html">Manage Rooms</a>
-      <a href="manage-users.html">Manage Users</a>
-      <a href="view-reports.html">View Reports</a>
-      <a href="help.html">Help</a>
-      <a href="login.html">Logout</a>
+      <a href="admin-dashboard.jsp">Dashboard</a>
+      <a href="manage-rooms.jsp">Manage Rooms</a>
+      <a href="manage-users.jsp">Manage Users</a>
+      <a href="view-reports.jsp">View Reports</a>
+      <a href="help.jsp">Help</a>
+      <a href="LogoutServlet">Logout</a>
    </div>
 
    <div class="main">

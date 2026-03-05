@@ -117,7 +117,7 @@
     <div class="container">
         <div class="sidebar">
             <h2>Ocean View Resort</h2>
-            <a href="staff-dashboard.html">Dashboard</a>
+            <a href="staff-dashboard.jsp">Dashboard</a>
             <a href="add-reservation.jsp">Add Reservation</a>
             <a href="view-reservation.jsp">View Reservation</a>
             <a href="calculate-bill.jsp" style="background: #0093E9; color: white;">Calculate Bill</a>
