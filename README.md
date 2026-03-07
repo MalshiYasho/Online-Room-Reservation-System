@@ -4,8 +4,9 @@ The Ocean View Resort Reservation System is a web-based application designed to 
 
 Technical Stack
 
-Frontend: JSP, HTML5, CSS3, JavaScript
-Backend: Java Servlets
-Database: MySQL
-Server: Apache Tomcat
-Version Control: Git & GitHub
+
+* Frontend: JSP, HTML5, CSS3, JavaScript
+* Backend: Java Servlets
+* Database: MySQL
+* Server: Apache Tomcat
+* Version Control: Git & GitHub
